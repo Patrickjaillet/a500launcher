@@ -61,7 +61,11 @@ Freeware. Source code not distributed. See [LICENSE](LICENSE).
 - Kickstart ROMs and disk images are copyrighted. Use only files you own legally
   (a dump of your own Amiga, Cloanto Amiga Forever, etc.).
 
+## Website
+
+https://patrickjaillet.github.io/a500launcher — built from `docs/` and served by
+GitHub Pages.
+
 ## Contact
 
 - E-mail: sandefjord.development@proton.me
-- Website: https://patrickjaillet.github.io/a500launcher

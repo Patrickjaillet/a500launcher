@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0]
+
+### Added
+- Presentation website under `docs/` (GitHub Pages): home with hero, screenshot,
+  feature grid, download cards (installer + portable, auto-linked to the latest
+  GitHub release), quick start, FAQ, and a Legal page. Static HTML/CSS, no build
+  step, responsive, light/dark, `prefers-reduced-motion` honoured.
+- `docs/assets/favicon.png` and `docs/assets/og.png` derived from the app icon.
+
 ## [0.8.4]
 
 ### Added
@@ -151,7 +160,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.4...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.4...v0.9.0
 [0.8.4]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.1...v0.8.2

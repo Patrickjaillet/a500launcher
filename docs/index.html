@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A500 Launcher — Amiga 500 emulation front end</title>
+<meta name="description" content="A Workbench-style Windows 11 front end dedicated to Amiga 500 emulation. WinUAE bundled; bring your own Kickstart ROM and disk images.">
+<meta property="og:title" content="A500 Launcher">
+<meta property="og:description" content="A Workbench-style Windows 11 front end dedicated to Amiga 500 emulation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://patrickjaillet.github.io/a500launcher/">
+<meta property="og:image" content="https://patrickjaillet.github.io/a500launcher/assets/og.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <span class="brand">A500 Launcher</span>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#start">Quick start</a>
+      <a href="#faq">FAQ</a>
+      <a href="legal.html">Legal</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="status">68000 · OCS chipset · 512K Chip RAM</span>
+    <h1>The Amiga 500, one click away.</h1>
+    <p>A Workbench-style front end for Windows 11, dedicated entirely to the
+       Amiga 500. WinUAE runs hidden in the background &mdash; you only ever see
+       the desktop and its icons.</p>
+    <a class="btn" href="#download">Download</a>
+    <a class="btn" href="#start">How it works</a>
+  </div>
+</div>
+
+<section id="screenshot">
+  <div class="wrap">
+    <img class="shot" src="scs/screenshot.png" alt="A500 Launcher desktop: Kickstart ROM, DF0:, DF1: and Library icons, with a Start the Amiga 500 window.">
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card"><h3>Fixed A500 profile</h3><p>68000, OCS, 512K chip RAM plus the optional 512K trapdoor. No other machine, no CPU or chipset choices.</p></div>
+      <div class="card"><h3>WinUAE bundled</h3><p>WinUAE 6.0.3 (64-bit) ships inside. Nothing else to install.</p></div>
+      <div class="card"><h3>Drag and drop</h3><p>Drop an <code>.adf</code> onto a drive, a <code>.rom</code> onto Kickstart. Recent disks are remembered.</p></div>
+      <div class="card"><h3>Disk library</h3><p>Save named configurations with title, publisher and year. Multi-disk swap for larger games.</p></div>
+      <div class="card"><h3>Comfort settings</h3><p>Screen filter (crisp or CRT), master volume, mouse or joystick on port&nbsp;1 with gamepad auto-detection.</p></div>
+      <div class="card"><h3>Eight languages</h3><p>English, French, German, Spanish, Italian, Dutch, Polish, Swedish. Follows your Windows language.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <h2>Download <span class="pill">Windows 11 only</span></h2>
+    <div class="downloads">
+      <div class="card">
+        <h3>Installer</h3>
+        <p><a class="btn" id="dl-setup" href="https://github.com/patrickjaillet/a500launcher/releases/latest">Get the setup</a></p>
+        <p>Amiga 500 themed wizard. Keeps your settings, library, <code>bios</code> and <code>roms</code> folders on uninstall.</p>
+      </div>
+      <div class="card">
+        <h3>Portable</h3>
+        <p><a class="btn" id="dl-portable" href="https://github.com/patrickjaillet/a500launcher/releases/latest">Get the zip</a></p>
+        <p>Unpack anywhere and run <code>A500Launcher.exe</code>. Checksums are published as <code>SHA256SUMS</code> with every release.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <h2>Quick start</h2>
+    <ol class="steps">
+      <li>Put your <strong>Kickstart ROM</strong> (1.2 or 1.3) in the <code>bios</code> folder, or click the Kickstart ROM icon.</li>
+      <li>Put your <strong>.adf</strong> disk images in the <code>roms</code> folder, then click <strong>DF0:</strong> (and <strong>DF1:</strong> if the game needs it).</li>
+      <li>Click <strong>Start the Amiga 500</strong>.</li>
+    </ol>
+    <p>Press <strong>Esc</strong> to close the launcher. In the emulator, <strong>F12</strong> opens the WinUAE menu where you can quit back to the launcher.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <details><summary>Does it include games or a Kickstart ROM?</summary>
+      <p>No. Kickstart ROMs and disk images are copyrighted. Use only files you own
+         legally &mdash; a dump of your own Amiga, Cloanto Amiga Forever, and so on.</p></details>
+    <details><summary>Why Amiga 500 only?</summary>
+      <p>It is a deliberate choice. A500 Launcher is meant to be the reference for
+         that one machine, not a general-purpose emulator front end.</p></details>
+    <details><summary>Can I run it on Windows 10?</summary>
+      <p>No. The launcher requires Windows 11 (build 22000 or later) and refuses to
+         start on older systems.</p></details>
+    <details><summary>Is the source code available?</summary>
+      <p>No. A500 Launcher is freeware distributed as a proprietary executable. The
+         source is not published. See the <a href="legal.html">Legal</a> page.</p></details>
+    <details><summary>How do I help translate it?</summary>
+      <p>Translations are plain JSON files with no code. See
+         <a href="https://github.com/patrickjaillet/a500launcher/blob/main/docs/i18n.md">docs/i18n.md</a>.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>A500 Launcher &mdash; Copyright &copy; 2026 Patrick JAILLET. All rights reserved. Freeware.</p>
+    <p>Contact: <a href="mailto:sandefjord.development@proton.me">sandefjord.development@proton.me</a> &middot;
+       <a href="https://github.com/patrickjaillet/a500launcher">GitHub</a> &middot;
+       <a href="legal.html">Legal</a></p>
+    <p>WinUAE is independent third-party software under its own licence.</p>
+  </div>
+</footer>
+
+<script>
+  fetch("https://api.github.com/repos/patrickjaillet/a500launcher/releases/latest")
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (rel) {
+      if (!rel || !rel.assets) return;
+      rel.assets.forEach(function (a) {
+        if (/Setup.*\.exe$/i.test(a.name)) document.getElementById("dl-setup").href = a.browser_download_url;
+        if (/portable\.zip$/i.test(a.name)) document.getElementById("dl-portable").href = a.browser_download_url;
+      });
+    })
+    .catch(function () {});
+</script>
+
+</body>
+</html>
