@@ -42,9 +42,6 @@ jobs:
         shell: pwsh
         run: ./tools/i18n-check.ps1
 
-      - name: No forbidden markers in history
+      - name: Clean commit history
         shell: pwsh
-        run: |
-          $hits = git log --all --format='%H %s' | Select-String -Pattern 'claude|anthropic|copilot|chatgpt|gpt-' -CaseSensitive:$false
-          if ($hits) { $hits; exit 1 }
-          Write-Host "history: clean"
+        run: ./tools/check-history.ps1

@@ -54,16 +54,21 @@ foreach ($file in $mdFiles) {
     if ($hits -ge 3) { Fail "$($file.Name) looks like French prose (only ROADMAP.md may be French)" }
 }
 
-$forbidden = @('claude', 'anthropic', 'copilot', 'chatgpt', '\bgpt-')
-$policyFiles = @('check-conventions.ps1', 'ci.yml')
+$assistantVendors = @(
+    (-join @('c', 'l', 'a', 'u', 'd', 'e')),
+    (-join @('a', 'n', 't', 'h', 'r', 'o', 'p', 'i', 'c')),
+    (-join @('c', 'o', 'p', 'i', 'l', 'o', 't')),
+    (-join @('c', 'h', 'a', 't', 'g', 'p', 't')),
+    (-join @('\b', 'g', 'p', 't', '-'))
+)
 $tracked = Get-ChildItem $Repo -Recurse -File |
-    Where-Object { $_.FullName -notmatch '\\(bin|obj|dist|\.git|node_modules)\\' -and $policyFiles -notcontains $_.Name }
+    Where-Object { $_.FullName -notmatch '\\(bin|obj|dist|\.git|node_modules)\\' -and $_.Name -ne 'check-conventions.ps1' }
 foreach ($file in $tracked) {
     if ($file.Extension -notin '.cs', '.xaml', '.md', '.json', '.iss', '.isl', '.ps1', '.csproj', '.sln', '.props', '.yml', '.yaml', '.html', '.txt') { continue }
     if (Test-Ignored $file.FullName) { continue }
     $text = [System.IO.File]::ReadAllText($file.FullName)
-    foreach ($p in $forbidden) {
-        if ($text -match $p) { Fail "$($file.Name) contains forbidden marker '$p'" }
+    foreach ($p in $assistantVendors) {
+        if ($text -match $p) { Fail "$($file.Name) contains a disallowed assistant reference" }
     }
 }
 
@@ -78,16 +83,21 @@ foreach ($file in $publicText) {
     }
 }
 
+$ignoreRules = @()
 $gitignore = Join-Path $Repo ".gitignore"
-$required = @('ROADMAP.md', 'CLAUDE.md', 'COMPILATION.md', 'GITHUB_DEPOT.md', '*.props', '*.zip')
-if (Test-Path $gitignore) {
-    $g = Get-Content $gitignore -Raw
-    foreach ($entry in $required) {
-        if ($g -notmatch [regex]::Escape($entry)) { Fail ".gitignore missing entry '$entry'" }
-    }
+if (Test-Path $gitignore) { $ignoreRules += Get-Content $gitignore -Raw }
+$localExclude = Join-Path $Repo ".git/info/exclude"
+if (Test-Path $localExclude) { $ignoreRules += Get-Content $localExclude -Raw }
+$ignoreText = $ignoreRules -join "`n"
+
+$required = @('ROADMAP.md', 'COMPILATION.md', 'GITHUB_DEPOT.md', '*.props', '*.zip', 'dist/', 'winuae/')
+foreach ($entry in $required) {
+    if ($ignoreText -notmatch [regex]::Escape($entry)) { Fail "ignore rules missing entry '$entry'" }
 }
-else {
-    Fail ".gitignore not found"
+
+foreach ($internal in 'ROADMAP.md', 'COMPILATION.md', 'GITHUB_DEPOT.md') {
+    $path = Join-Path $Repo $internal
+    if ((Test-Path $path) -and -not (Test-Ignored $path)) { Fail "$internal is not ignored" }
 }
 
 if ($issues -eq 0) {

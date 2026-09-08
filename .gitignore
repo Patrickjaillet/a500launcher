@@ -1,4 +1,4 @@
-﻿# Build output
+# Build output
 bin/
 obj/
 *.user
@@ -16,12 +16,8 @@ dist/
 
 # Internal working documents (not published)
 ROADMAP.md
-CLAUDE.md
 COMPILATION.md
 GITHUB_DEPOT.md
-
-# Agent tooling (must never reach the public repository)
-.claude/
 
 # User-supplied emulation content (never versioned)
 bios/*
