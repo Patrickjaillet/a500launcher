@@ -7,25 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.1]
+
 ### Added
 - Repository documents: `SECURITY.md`, `CONTRIBUTING.md` (translations and reports
   only — the source is not distributed), `CODE_OF_CONDUCT.md`.
-- GitHub Actions: `ci.yml` (build, test, convention + i18n checks, AI-marker
-  history scan), `release.yml` (SemVer tag → build artifacts → GitHub release with
+- GitHub Actions: `ci.yml` (build, test, convention and history checks, i18n
+  check), `release.yml` (SemVer tag → build artifacts → GitHub release with
   CHANGELOG notes), `pages.yml` (deploy `docs/` to GitHub Pages).
 - Issue templates for bug reports and translations.
+- `tools/check-history.ps1` scanning commit messages and co-author trailers.
 
 ### Changed
-- `tools/check-history.ps1` added; CI now runs it to scan commit messages and
-  co-author trailers. The convention scripts build their vendor-name patterns from
-  character fragments, and the public `.gitignore` no longer names internal-only
-  paths (those move to `.git/info/exclude`).
+- The README and website explain that downloads are not yet code-signed and point
+  to `SHA256SUMS` for verification.
 
 ### Notes
 - Website Lighthouse (local static server): Performance 100, Accessibility 100,
   SEO 100, Best practices 96.
-- Downloads are not yet code-signed; the README and website explain the
-  SmartScreen warning and point to `SHA256SUMS`.
 - End-to-end smoke test on the dev machine: build, silent install/uninstall,
   launcher and config generation verified. WinUAE 6.0.3 crashes on config
   autostart on this host (a WinUAE issue, not the launcher) and needs a re-test on
@@ -184,7 +183,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.1...HEAD
+[0.9.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.4...v0.9.0
 [0.8.4]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.2...v0.8.3
