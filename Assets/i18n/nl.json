@@ -65,6 +65,8 @@
   "validation.rom.missing": "Geen Kickstart-ROM gevonden.",
   "validation.rom.ok": "Kickstart-ROM herkend.",
   "validation.rom.nonStandard": "Deze Kickstart-ROM heeft een ongebruikelijke grootte. Toch starten?",
+  "validation.rom.notA500": "Deze Kickstart-ROM is geen versie 1.2 of 1.3. Toch starten?",
+  "validation.winuae.old": "De gedetecteerde WinUAE-versie is ouder dan aanbevolen. Toch starten?",
   "validation.adf.missing": "De diskette is niet gevonden.",
   "validation.adf.ok": "Diskette herkend.",
   "validation.adf.nonStandard": "Deze diskette is geen standaard Amiga-diskette. Toch starten?",

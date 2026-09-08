@@ -26,6 +26,14 @@ public static class MediaValidation
             return new MediaCheck(MediaStatus.Missing, "validation.rom.missing");
         }
 
+        var identified = KickstartCatalog.Identify(path);
+        if (identified is not null)
+        {
+            return KickstartCatalog.IsA500Kickstart(path)
+                ? new MediaCheck(MediaStatus.Recognised, "validation.rom.ok")
+                : new MediaCheck(MediaStatus.NonStandard, "validation.rom.notA500");
+        }
+
         var length = new FileInfo(path).Length;
         if (length is >= KickstartMin and <= KickstartMax && (length & (length - 1)) == 0)
         {

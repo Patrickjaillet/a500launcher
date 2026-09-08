@@ -65,6 +65,8 @@
   "validation.rom.missing": "No Kickstart ROM found.",
   "validation.rom.ok": "Kickstart ROM recognised.",
   "validation.rom.nonStandard": "This Kickstart ROM has an unusual size. Start anyway?",
+  "validation.rom.notA500": "This Kickstart ROM is not a 1.2 or 1.3 version. Start anyway?",
+  "validation.winuae.old": "The detected WinUAE version is older than recommended. Start anyway?",
   "validation.adf.missing": "The disk image was not found.",
   "validation.adf.ok": "Disk image recognised.",
   "validation.adf.nonStandard": "This disk image is not a standard Amiga floppy. Start anyway?",

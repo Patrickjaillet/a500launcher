@@ -308,6 +308,15 @@ public partial class MainWindow : Window
             return;
         }
 
+        if (!WinUaeInfo.IsSupported(_settings.WinUaeExePath))
+        {
+            Log.Warn("Bundled or configured WinUAE is older than the supported minimum.");
+            if (!ConfirmNonStandard("validation.winuae.old"))
+            {
+                return;
+            }
+        }
+
         var romCheck = MediaValidation.CheckKickstart(_settings.KickstartRomPath);
         if (romCheck.Status == MediaStatus.NonStandard && !ConfirmNonStandard(romCheck.DetailKey))
         {

@@ -17,8 +17,12 @@
     <Company>Patrick JAILLET</Company>
     <Product>A500 Launcher</Product>
     <Copyright>Copyright © 2026 Patrick JAILLET</Copyright>
-    <Version>0.8.0</Version>
+    <Version>0.8.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Hashing" Version="9.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="tests\**\*" />

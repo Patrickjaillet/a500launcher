@@ -65,6 +65,8 @@
   "validation.rom.missing": "Nessuna ROM Kickstart trovata.",
   "validation.rom.ok": "ROM Kickstart riconosciuta.",
   "validation.rom.nonStandard": "Questa ROM Kickstart ha una dimensione insolita. Avviare comunque?",
+  "validation.rom.notA500": "Questa ROM Kickstart non è una versione 1.2 o 1.3. Avviare comunque?",
+  "validation.winuae.old": "La versione di WinUAE rilevata è più vecchia di quella consigliata. Avviare comunque?",
   "validation.adf.missing": "Dischetto non trovato.",
   "validation.adf.ok": "Dischetto riconosciuto.",
   "validation.adf.nonStandard": "Questo dischetto non è un dischetto Amiga standard. Avviare comunque?",

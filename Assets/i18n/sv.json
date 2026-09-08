@@ -65,6 +65,8 @@
   "validation.rom.missing": "Ingen Kickstart-ROM hittades.",
   "validation.rom.ok": "Kickstart-ROM identifierad.",
   "validation.rom.nonStandard": "Denna Kickstart-ROM har en ovanlig storlek. Starta ändå?",
+  "validation.rom.notA500": "Denna Kickstart-ROM är inte en 1.2- eller 1.3-version. Starta ändå?",
+  "validation.winuae.old": "Den identifierade WinUAE-versionen är äldre än rekommenderat. Starta ändå?",
   "validation.adf.missing": "Disketten hittades inte.",
   "validation.adf.ok": "Diskett identifierad.",
   "validation.adf.nonStandard": "Denna diskett är inte en standard-Amigadiskett. Starta ändå?",

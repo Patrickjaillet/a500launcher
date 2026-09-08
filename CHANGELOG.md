@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.1]
+
+### Added
+- `KickstartCatalog`: CRC-32 identification of common Kickstart ROMs (1.2, 1.3,
+  2.04, 3.1). The boot check now names the ROM and warns before starting when it
+  is not a 1.2/1.3 A500 image (`System.IO.Hashing`).
+- `WinUaeInfo`: reads the configured WinUAE executable's file version and warns
+  before starting if it is older than 5.x.
+
 ## [0.8.0]
 
 ### Added
@@ -113,7 +122,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.5.1...v0.6.0
