@@ -55,8 +55,9 @@ foreach ($file in $mdFiles) {
 }
 
 $forbidden = @('claude', 'anthropic', 'copilot', 'chatgpt', '\bgpt-')
+$policyFiles = @('check-conventions.ps1', 'ci.yml')
 $tracked = Get-ChildItem $Repo -Recurse -File |
-    Where-Object { $_.FullName -notmatch '\\(bin|obj|dist|\.git|node_modules)\\' -and $_.Name -ne 'check-conventions.ps1' }
+    Where-Object { $_.FullName -notmatch '\\(bin|obj|dist|\.git|node_modules)\\' -and $policyFiles -notcontains $_.Name }
 foreach ($file in $tracked) {
     if ($file.Extension -notin '.cs', '.xaml', '.md', '.json', '.iss', '.isl', '.ps1', '.csproj', '.sln', '.props', '.yml', '.yaml', '.html', '.txt') { continue }
     if (Test-Ignored $file.FullName) { continue }

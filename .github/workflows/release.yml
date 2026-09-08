@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Verify tag is SemVer
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_REF_NAME -notmatch '^v\d+\.\d+\.\d+$') {
+            Write-Error "Tag $($env:GITHUB_REF_NAME) is not a plain SemVer tag."
+            exit 1
+          }
+
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
+
+      - name: Build artifacts
+        shell: pwsh
+        run: ./tools/build-release.ps1
+
+      - name: Extract changelog section
+        id: notes
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME.TrimStart('v')
+          $lines = Get-Content CHANGELOG.md
+          $start = ($lines | Select-String -Pattern "^## \[$([regex]::Escape($version))\]").LineNumber
+          if (-not $start) { Write-Error "No CHANGELOG section for $version"; exit 1 }
+          $rest = $lines[$start..($lines.Length - 1)]
+          $end = ($rest | Select-String -Pattern '^## \[').LineNumber
+          $section = if ($end) { $rest[0..($end[0] - 2)] } else { $rest }
+          $section -join "`n" | Set-Content release-notes.md -Encoding utf8
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release-notes.md
+          files: |
+            dist/A500Launcher-Setup-*.exe
+            dist/A500Launcher-*-portable.zip
+            dist/SHA256SUMS

@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore A500Launcher.sln
+
+      - name: Build
+        run: dotnet build A500Launcher.sln -c Release --no-restore
+
+      - name: Test
+        run: dotnet test A500Launcher.sln -c Release --no-build
+
+  conventions:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: check-conventions
+        shell: pwsh
+        run: ./tools/check-conventions.ps1
+
+      - name: i18n-check
+        shell: pwsh
+        run: ./tools/i18n-check.ps1
+
+      - name: No forbidden markers in history
+        shell: pwsh
+        run: |
+          $hits = git log --all --format='%H %s' | Select-String -Pattern 'claude|anthropic|copilot|chatgpt|gpt-' -CaseSensitive:$false
+          if ($hits) { $hits; exit 1 }
+          Write-Host "history: clean"

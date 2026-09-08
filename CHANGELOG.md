@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Repository documents: `SECURITY.md`, `CONTRIBUTING.md` (translations and reports
+  only — the source is not distributed), `CODE_OF_CONDUCT.md`.
+- GitHub Actions: `ci.yml` (build, test, convention + i18n checks, AI-marker
+  history scan), `release.yml` (SemVer tag → build artifacts → GitHub release with
+  CHANGELOG notes), `pages.yml` (deploy `docs/` to GitHub Pages).
+- Issue templates for bug reports and translations.
+
 ## [0.9.0]
 
 ### Added
