@@ -55,6 +55,16 @@ public static class UaeConfigBuilder
             builder.AppendLine($"floppy1={EscapePath(settings.Floppy1Path)}");
         }
 
+        var slot = 0;
+        foreach (var disk in settings.SwapDisks)
+        {
+            if (!string.IsNullOrWhiteSpace(disk))
+            {
+                builder.AppendLine($"diskimage{slot}={EscapePath(disk)}");
+                slot++;
+            }
+        }
+
         builder.AppendLine("hardfile2=");
         builder.AppendLine("uaehf0=");
         builder.AppendLine("cd32cd=false");

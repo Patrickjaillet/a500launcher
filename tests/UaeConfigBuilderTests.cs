@@ -99,6 +99,19 @@ public sealed class UaeConfigBuilderTests
     }
 
     [Fact]
+    public void SwapDisksBecomeSequentialDiskImageSlots()
+    {
+        var content = Build(new AppSettings
+        {
+            SwapDisks = new System.Collections.Generic.List<string> { @"C:\a.adf", "", @"C:\b.adf" },
+        });
+
+        Assert.Contains(@"diskimage0=C:\\a.adf", content);
+        Assert.Contains(@"diskimage1=C:\\b.adf", content);
+        Assert.DoesNotContain("diskimage2=", content);
+    }
+
+    [Fact]
     public void OmitsEmptyMediaLines()
     {
         var content = Build(new AppSettings());

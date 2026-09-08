@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
 using A500Launcher.Models;
 using A500Launcher.Services;
 using Xunit;
@@ -6,6 +9,52 @@ namespace A500Launcher.Tests;
 
 public sealed class DiskSetLibraryTests
 {
+    [Fact]
+    public void ExportThenImportRoundTripsAndAssignsANewId()
+    {
+        var path = Path.Combine(Path.GetTempPath(), "a500-" + Guid.NewGuid().ToString("N") + ".a500set");
+        var original = new DiskSet
+        {
+            Id = "original",
+            Title = "Monkey Island",
+            Publisher = "Lucasfilm",
+            Year = "1990",
+            Floppy0Path = @"C:\adf\mi-disk1.adf",
+            SwapDisks = new List<string> { @"C:\adf\mi-disk2.adf", @"C:\adf\mi-disk3.adf" },
+        };
+
+        try
+        {
+            DiskSetLibrary.Export(original, path);
+            var imported = DiskSetLibrary.Import(path);
+
+            Assert.NotNull(imported);
+            Assert.Equal("Monkey Island", imported!.Title);
+            Assert.Equal(2, imported.SwapDisks.Count);
+            Assert.NotEqual("original", imported.Id);
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Fact]
+    public void ImportOfGarbageReturnsNull()
+    {
+        var path = Path.Combine(Path.GetTempPath(), "a500-bad-" + Guid.NewGuid().ToString("N") + ".a500set");
+        File.WriteAllText(path, "not json at all");
+
+        try
+        {
+            Assert.Null(DiskSetLibrary.Import(path));
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
     [Fact]
     public void FromSettingsCopiesFloppyAndHardwareFlags()
     {

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.3]
+
+### Added
+- Desktop "Library" drawer icon (Workbench-style) that opens the library.
+- The library is now a thumbnail grid (diskette icon + title + publisher/year).
+- Multi-disk swap: per-configuration list of extra `.adf` files, edited in the
+  configuration editor, written as sequential `diskimageN` slots for WinUAE's disk
+  swapper.
+- Export a configuration to a `.a500set` file and import one back (paths only, no
+  `.adf` contents); imported configs get a fresh id.
+
 ## [0.8.2]
 
 ### Added
@@ -131,7 +142,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.2...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.3...HEAD
+[0.8.3]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.7.0...v0.8.0

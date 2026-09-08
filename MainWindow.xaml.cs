@@ -293,7 +293,11 @@ public partial class MainWindow : Window
         new AboutWindow { Owner = this }.ShowDialog();
     }
 
-    private void OnMenuLibrary_Click(object sender, RoutedEventArgs e)
+    private void OnDrawer_Click(object sender, MouseButtonEventArgs e) => OpenLibrary(e);
+
+    private void OnMenuLibrary_Click(object sender, RoutedEventArgs e) => OpenLibrary(e);
+
+    private void OpenLibrary(RoutedEventArgs e)
     {
         var library = new LibraryWindow(_settings) { Owner = this };
         var launch = library.ShowDialog() == true ? library.LaunchRequested : null;

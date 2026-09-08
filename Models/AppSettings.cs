@@ -6,6 +6,8 @@ public sealed class AppSettings
 {
     public List<string> RecentFloppies { get; set; } = new();
 
+    public List<string> SwapDisks { get; set; } = new();
+
     public bool ShowBootSplash { get; set; } = true;
 
     public bool PlayFloppySound { get; set; } = true;

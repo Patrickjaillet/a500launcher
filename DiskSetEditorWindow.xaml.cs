@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using System.Windows;
 using Microsoft.Win32;
 using A500Launcher.I18n;
@@ -21,6 +22,37 @@ public partial class DiskSetEditorWindow : Window
         Df1Box.Text = set.Floppy1Path;
         TrapdoorCheck.IsChecked = set.ExtraTrapdoorRam512k;
         FullscreenCheck.IsChecked = set.Fullscreen;
+
+        foreach (var disk in set.SwapDisks)
+        {
+            SwapList.Items.Add(disk);
+        }
+    }
+
+    private void OnAddSwap(object sender, RoutedEventArgs e)
+    {
+        var dialog = new OpenFileDialog
+        {
+            Title = Strings.T("editor.swap.add"),
+            Filter = Strings.T("picker.floppy.filter"),
+            Multiselect = true,
+        };
+
+        if (dialog.ShowDialog() == true)
+        {
+            foreach (var file in dialog.FileNames)
+            {
+                SwapList.Items.Add(file);
+            }
+        }
+    }
+
+    private void OnRemoveSwap(object sender, RoutedEventArgs e)
+    {
+        if (SwapList.SelectedItem is not null)
+        {
+            SwapList.Items.Remove(SwapList.SelectedItem);
+        }
     }
 
     public DiskSet Set { get; }
@@ -66,6 +98,7 @@ public partial class DiskSetEditorWindow : Window
         Set.Floppy1Path = Df1Box.Text;
         Set.ExtraTrapdoorRam512k = TrapdoorCheck.IsChecked == true;
         Set.Fullscreen = FullscreenCheck.IsChecked == true;
+        Set.SwapDisks = SwapList.Items.Cast<string>().ToList();
 
         DialogResult = true;
         Close();

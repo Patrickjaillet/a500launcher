@@ -33,6 +33,7 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -98,7 +99,21 @@
                         Foreground="Black" Background="{StaticResource WbWindowGray}" Visibility="Collapsed" Click="OnDrive1Eject"/>
             </StackPanel>
 
-            <Border Grid.Column="3" Width="220" Height="150" Background="{StaticResource WbWindowGray}"
+            <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top" Cursor="Hand"
+                        MouseLeftButtonUp="OnDrawer_Click">
+                <Border Width="64" Height="48" Background="{StaticResource WbWhite}" BorderBrush="{StaticResource WbBlack}" BorderThickness="2">
+                    <Canvas Width="44" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Rectangle Fill="{StaticResource WbBlack}" Width="44" Height="8" Canvas.Top="0"/>
+                        <Rectangle Fill="{StaticResource WbBlack}" Width="4" Height="24" Canvas.Left="0" Canvas.Top="8"/>
+                        <Rectangle Fill="{StaticResource WbBlack}" Width="4" Height="24" Canvas.Left="40" Canvas.Top="8"/>
+                        <Rectangle Fill="{StaticResource WbBlack}" Width="44" Height="4" Canvas.Top="28"/>
+                        <Rectangle Fill="{StaticResource WbOrange}" Width="14" Height="4" Canvas.Left="15" Canvas.Top="2"/>
+                    </Canvas>
+                </Border>
+                <TextBlock Text="{i18n:Localize desktop.drawer}" Foreground="White" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+            </StackPanel>
+
+            <Border Grid.Column="4" Width="220" Height="150" Background="{StaticResource WbWindowGray}"
                     BorderBrush="{StaticResource WbBlack}" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <StackPanel Margin="12">
                     <Border Background="{StaticResource WbBlack}" Padding="4,2">

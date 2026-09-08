@@ -17,7 +17,7 @@
     <Company>Patrick JAILLET</Company>
     <Product>A500 Launcher</Product>
     <Copyright>Copyright © 2026 Patrick JAILLET</Copyright>
-    <Version>0.8.2</Version>
+    <Version>0.8.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

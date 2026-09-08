@@ -14,22 +14,37 @@
 
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
             <Button Content="{i18n:Localize library.import}" Style="{StaticResource WbButton}" Click="OnImport_Click" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize library.importSet}" Style="{StaticResource WbButton}" Click="OnImportSet_Click" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize library.exportSet}" Style="{StaticResource WbButton}" Click="OnExportSet_Click" Margin="0,0,10,0"/>
             <Button Content="{i18n:Localize library.saveCurrent}" Style="{StaticResource WbButton}" Click="OnSaveCurrent_Click" Margin="0,0,10,0"/>
             <Button Content="{i18n:Localize library.close}" Style="{StaticResource WbButton}" Click="OnClose_Click"/>
         </StackPanel>
 
         <ListBox x:Name="SetList" Background="White" BorderBrush="{StaticResource WbBlack}" BorderThickness="2"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  MouseDoubleClick="OnList_DoubleClick" SelectionChanged="OnSelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="4">
-                        <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
-                        <TextBlock FontSize="10" Foreground="#555555">
+                    <StackPanel Width="120" Margin="6" HorizontalAlignment="Center">
+                        <Border Width="72" Height="56" Background="{StaticResource WbWhite}" BorderBrush="{StaticResource WbBlack}" BorderThickness="2" HorizontalAlignment="Center">
+                            <Canvas Width="44" Height="34" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Fill="{StaticResource WbBlack}" Width="44" Height="34"/>
+                                <Rectangle Fill="{StaticResource WbWhite}" Width="26" Height="16" Canvas.Left="9" Canvas.Top="14"/>
+                                <Rectangle Fill="{StaticResource WbWhite}" Width="12" Height="9" Canvas.Left="26" Canvas.Top="3"/>
+                                <Rectangle Fill="{StaticResource WbBlack}" Width="4" Height="7" Canvas.Left="30" Canvas.Top="4"/>
+                            </Canvas>
+                        </Border>
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                        <TextBlock FontSize="10" Foreground="#555555" TextAlignment="Center">
                             <Run Text="{Binding Publisher, Mode=OneWay}"/>
                             <Run Text=" "/>
                             <Run Text="{Binding Year, Mode=OneWay}"/>
                         </TextBlock>
-                        <TextBlock Text="{Binding Floppy0Path, Mode=OneWay}" FontSize="10" Foreground="#777777" TextTrimming="CharacterEllipsis"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

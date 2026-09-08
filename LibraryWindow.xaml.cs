@@ -118,6 +118,54 @@ public partial class LibraryWindow : Window
             MessageBoxImage.Information);
     }
 
+    private void OnExportSet_Click(object sender, RoutedEventArgs e)
+    {
+        if (Selected is null)
+        {
+            return;
+        }
+
+        var dialog = new SaveFileDialog
+        {
+            Title = Strings.T("library.exportSet"),
+            Filter = Strings.T("library.set.filter"),
+            FileName = Selected.Title + ".a500set",
+        };
+
+        if (dialog.ShowDialog() == true)
+        {
+            DiskSetLibrary.Export(Selected, dialog.FileName);
+        }
+    }
+
+    private void OnImportSet_Click(object sender, RoutedEventArgs e)
+    {
+        var dialog = new OpenFileDialog
+        {
+            Title = Strings.T("library.importSet"),
+            Filter = Strings.T("library.set.filter"),
+        };
+
+        if (dialog.ShowDialog() != true)
+        {
+            return;
+        }
+
+        var set = DiskSetLibrary.Import(dialog.FileName);
+        if (set is null)
+        {
+            MessageBox.Show(
+                Strings.T("library.importSet.failed"),
+                Strings.T("library.importSet"),
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning);
+            return;
+        }
+
+        DiskSetLibrary.Save(set);
+        Reload();
+    }
+
     private void OnClose_Click(object sender, RoutedEventArgs e) => Close();
 
     private static DiskSet Clone(DiskSet source) => new()
@@ -129,6 +177,7 @@ public partial class LibraryWindow : Window
         Notes = source.Notes,
         Floppy0Path = source.Floppy0Path,
         Floppy1Path = source.Floppy1Path,
+        SwapDisks = new System.Collections.Generic.List<string>(source.SwapDisks),
         ExtraTrapdoorRam512k = source.ExtraTrapdoorRam512k,
         Fullscreen = source.Fullscreen,
     };

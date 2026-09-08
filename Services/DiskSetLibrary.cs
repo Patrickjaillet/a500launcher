@@ -73,6 +73,7 @@ public static class DiskSetLibrary
             Title = title,
             Floppy0Path = settings.Floppy0Path,
             Floppy1Path = settings.Floppy1Path,
+            SwapDisks = new List<string>(settings.SwapDisks),
             ExtraTrapdoorRam512k = settings.ExtraTrapdoorRam512k,
             Fullscreen = settings.Fullscreen,
         };
@@ -82,7 +83,32 @@ public static class DiskSetLibrary
     {
         settings.Floppy0Path = set.Floppy0Path;
         settings.Floppy1Path = set.Floppy1Path;
+        settings.SwapDisks = new List<string>(set.SwapDisks);
         settings.ExtraTrapdoorRam512k = set.ExtraTrapdoorRam512k;
         settings.Fullscreen = set.Fullscreen;
+    }
+
+    public static void Export(DiskSet set, string path)
+    {
+        File.WriteAllText(path, JsonSerializer.Serialize(set, Options));
+    }
+
+    public static DiskSet? Import(string path)
+    {
+        try
+        {
+            var set = JsonSerializer.Deserialize<DiskSet>(File.ReadAllText(path));
+            if (set is null)
+            {
+                return null;
+            }
+
+            set.Id = Guid.NewGuid().ToString("N");
+            return set;
+        }
+        catch (Exception exception) when (exception is IOException or JsonException)
+        {
+            return null;
+        }
     }
 }

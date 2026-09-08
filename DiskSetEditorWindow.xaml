@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i18n="clr-namespace:A500Launcher.I18n"
-        Title="{i18n:Localize editor.title}" Height="420" Width="520"
+        Title="{i18n:Localize editor.title}" Height="520" Width="520"
         WindowStartupLocation="CenterOwner"
         Background="{StaticResource WbWindowGray}"
         FontFamily="{StaticResource WbFont}"
@@ -40,8 +40,15 @@
             <TextBox x:Name="Df1Box" IsReadOnly="True" Background="White"/>
         </DockPanel>
 
+        <DockPanel Margin="0,0,0,4">
+            <Button Content="{i18n:Localize editor.swap.add}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnAddSwap"/>
+            <Button Content="{i18n:Localize editor.swap.remove}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnRemoveSwap" Margin="0,0,6,0"/>
+            <TextBlock Text="{i18n:Localize editor.swap}" FontWeight="Bold" VerticalAlignment="Center"/>
+        </DockPanel>
+        <ListBox x:Name="SwapList" Background="White" Height="60" Margin="0,0,0,10"/>
+
         <TextBlock Text="{i18n:Localize editor.notes}" FontWeight="Bold" Margin="0,0,0,4"/>
-        <TextBox x:Name="NotesBox" Background="White" Height="50" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0,10"/>
+        <TextBox x:Name="NotesBox" Background="White" Height="44" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0,10"/>
 
         <CheckBox x:Name="TrapdoorCheck" Content="{i18n:Localize settings.trapdoor.label}" Margin="0,0,0,6"/>
         <CheckBox x:Name="FullscreenCheck" Content="{i18n:Localize settings.fullscreen.label}" Margin="0,0,0,16"/>

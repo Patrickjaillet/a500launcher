@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+
 namespace A500Launcher.Models;
 
 public sealed class DiskSet
 {
+    public List<string> SwapDisks { get; set; } = new();
+
     public string Id { get; set; } = string.Empty;
 
     public string Title { get; set; } = string.Empty;
