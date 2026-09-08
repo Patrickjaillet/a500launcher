@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0]
+
+First public release. A500 Launcher covers the full launch flow: a Workbench-style
+desktop, drag and drop, a disk library with multi-disk swap, the comfort settings
+(screen filter, volume, port 1 with gamepad detection), eight languages, the boot
+screen, and a themed installer bundling WinUAE 6.0.3. The Amiga 500 hardware profile
+is locked (68000 / OCS / 512K chip + optional 512K trapdoor).
+
+### Notes
+- Downloads are not code-signed yet (v1.0.1); verify against `SHA256SUMS`.
+- The WinUAE-to-Workbench step could not be verified on the build machine, where
+  every WinUAE version crashes on config autostart (a host issue, not the
+  launcher). The generated `.uae` and the `winuae64.exe -f` invocation are correct.
+
 ## [0.9.1]
 
 ### Added
@@ -183,7 +197,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.1...v1.0.0
 [0.9.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.4...v0.9.0
 [0.8.4]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.3...v0.8.4
