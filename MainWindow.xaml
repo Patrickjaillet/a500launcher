@@ -7,6 +7,7 @@
         WindowState="Maximized" WindowStyle="None" ResizeMode="NoResize"
         Background="{StaticResource WbBackground}"
         FontFamily="{StaticResource WbFont}"
+        Cursor="{StaticResource WbCursor}"
         AllowDrop="True" Drop="OnWindowDrop" DragOver="OnDragOverAny"
         KeyDown="OnWindowKeyDown">
 

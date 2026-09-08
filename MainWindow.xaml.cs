@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Microsoft.Win32;
 using A500Launcher.I18n;
 using A500Launcher.Models;
@@ -57,11 +58,34 @@ public partial class MainWindow : Window
 
         foreach (var path in recent)
         {
-            var item = new MenuItem { Header = Path.GetFileName(path), ToolTip = path };
+            var item = new MenuItem
+            {
+                Header = Path.GetFileName(path),
+                ToolTip = path,
+                Icon = FloppyThumbnail(),
+            };
             var captured = path;
             item.Click += (_, _) => InsertFloppy(drive0, captured);
             parent.Items.Add(item);
         }
+    }
+
+    private static Canvas FloppyThumbnail()
+    {
+        var canvas = new Canvas { Width = 16, Height = 16 };
+        var body = new System.Windows.Shapes.Rectangle { Width = 14, Height = 14, Fill = Brushes.Black };
+        Canvas.SetLeft(body, 1);
+        Canvas.SetTop(body, 1);
+        var label = new System.Windows.Shapes.Rectangle { Width = 9, Height = 6, Fill = Brushes.White };
+        Canvas.SetLeft(label, 3);
+        Canvas.SetTop(label, 7);
+        var shutter = new System.Windows.Shapes.Rectangle { Width = 4, Height = 4, Fill = Brushes.White };
+        Canvas.SetLeft(shutter, 9);
+        Canvas.SetTop(shutter, 2);
+        canvas.Children.Add(body);
+        canvas.Children.Add(label);
+        canvas.Children.Add(shutter);
+        return canvas;
     }
 
     private void InsertFloppy(bool drive0, string path)

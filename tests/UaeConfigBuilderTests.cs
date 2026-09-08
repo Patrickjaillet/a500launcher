@@ -79,6 +79,18 @@ public sealed class UaeConfigBuilderTests
     }
 
     [Fact]
+    public void NtscTimingSwitchesRefreshRate()
+    {
+        var pal = Build(new AppSettings { NtscTiming = false });
+        Assert.Contains("ntsc=false", pal);
+        Assert.Contains("chipset_refreshrate=50", pal);
+
+        var ntsc = Build(new AppSettings { NtscTiming = true });
+        Assert.Contains("ntsc=true", ntsc);
+        Assert.Contains("chipset_refreshrate=60", ntsc);
+    }
+
+    [Fact]
     public void ScreenFilterEmitsScanlines()
     {
         Assert.Contains("gfx_filter_scanlines=0", Build(new AppSettings { Filter = ScreenFilter.Crisp }));

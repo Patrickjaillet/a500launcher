@@ -7,6 +7,8 @@
 
             <FontFamily x:Key="WbFont">pack://application:,,,/assets/fonts/Topaz_a500_v1.0.ttf#Topaz a500a1000a2000, Consolas</FontFamily>
 
+            <Cursor x:Key="WbCursor">assets/cursors/workbench.cur</Cursor>
+
             <SolidColorBrush x:Key="WbBackground" Color="#9090C8"/>
             <SolidColorBrush x:Key="WbWindowGray" Color="#AAAAAA"/>
             <SolidColorBrush x:Key="WbWhite" Color="#FFFFFF"/>

@@ -67,6 +67,8 @@
         <CheckBox x:Name="BootSplashCheck" Content="{i18n:Localize settings.bootSplash.label}" Margin="0,0,0,8"/>
         <CheckBox x:Name="FloppySoundCheck" Content="{i18n:Localize settings.floppySound.label}" Margin="0,0,0,16"/>
 
+        <CheckBox x:Name="NtscCheck" Content="{i18n:Localize settings.ntsc.label}" Margin="0,0,0,16" Visibility="Collapsed"/>
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{i18n:Localize settings.cancel}" Style="{StaticResource WbButton}" Click="OnCancel_Click" Margin="0,0,10,0"/>
             <Button Content="{i18n:Localize settings.save}" Style="{StaticResource WbButton}" Click="OnSave_Click"/>

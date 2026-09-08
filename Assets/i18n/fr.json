@@ -95,6 +95,7 @@
   "settings.filter.crtLight": "CRT (léger)",
   "settings.filter.crtHeavy": "CRT (prononcé)",
   "settings.volume.label": "Volume",
+  "settings.ntsc.label": "Cadence NTSC (60 Hz) au lieu de PAL",
   "settings.browse": "Parcourir...",
   "settings.cancel": "Annuler",
   "settings.save": "Enregistrer",

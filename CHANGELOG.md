@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.2]
+
+### Added
+- Workbench-style arrow mouse cursor over the desktop (`assets/cursors/workbench.cur`).
+- Generic diskette thumbnail next to each entry in the Recent drive menus.
+- Hidden advanced setting: NTSC timing (60 Hz) instead of PAL. Not shown in the
+  façade — the checkbox appears only when Ctrl+Shift is held as Settings opens, or
+  when it is already enabled. Maps to `ntsc` / `chipset_refreshrate`.
+
 ## [0.8.1]
 
 ### Added
@@ -122,7 +131,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.2...HEAD
+[0.8.2]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.6.0...v0.7.0

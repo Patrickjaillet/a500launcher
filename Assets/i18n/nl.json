@@ -95,6 +95,7 @@
   "settings.filter.crtLight": "CRT (licht)",
   "settings.filter.crtHeavy": "CRT (zwaar)",
   "settings.volume.label": "Volume",
+  "settings.ntsc.label": "NTSC-timing (60 Hz) in plaats van PAL",
   "settings.browse": "Bladeren...",
   "settings.cancel": "Annuleren",
   "settings.save": "Opslaan",

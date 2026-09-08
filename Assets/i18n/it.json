@@ -95,6 +95,7 @@
   "settings.filter.crtLight": "CRT (leggero)",
   "settings.filter.crtHeavy": "CRT (intenso)",
   "settings.volume.label": "Volume",
+  "settings.ntsc.label": "Sincronismo NTSC (60 Hz) invece di PAL",
   "settings.browse": "Sfoglia...",
   "settings.cancel": "Annulla",
   "settings.save": "Salva",

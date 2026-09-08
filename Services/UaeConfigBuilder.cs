@@ -25,8 +25,8 @@ public static class UaeConfigBuilder
 
         builder.AppendLine("chipset=ocs");
         builder.AppendLine("chipset_compatible=A500");
-        builder.AppendLine("ntsc=false");
-        builder.AppendLine("chipset_refreshrate=50");
+        builder.AppendLine($"ntsc={(settings.NtscTiming ? "true" : "false")}");
+        builder.AppendLine($"chipset_refreshrate={(settings.NtscTiming ? 60 : 50)}");
 
         builder.AppendLine("chipmem_size=1");
         builder.AppendLine($"bogomem_size={(settings.ExtraTrapdoorRam512k ? 1 : 0)}");

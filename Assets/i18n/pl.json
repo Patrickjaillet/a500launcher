@@ -95,6 +95,7 @@
   "settings.filter.crtLight": "CRT (lekki)",
   "settings.filter.crtHeavy": "CRT (mocny)",
   "settings.volume.label": "Głośność",
+  "settings.ntsc.label": "Taktowanie NTSC (60 Hz) zamiast PAL",
   "settings.browse": "Przeglądaj...",
   "settings.cancel": "Anuluj",
   "settings.save": "Zapisz",

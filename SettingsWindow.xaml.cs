@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using Microsoft.Win32;
 using A500Launcher.I18n;
 using A500Launcher.Models;
@@ -12,6 +13,14 @@ public partial class SettingsWindow : Window
     public SettingsWindow(AppSettings current)
     {
         InitializeComponent();
+
+        if ((Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift)
+            || current.NtscTiming)
+        {
+            NtscCheck.Visibility = Visibility.Visible;
+        }
+
+        NtscCheck.IsChecked = current.NtscTiming;
 
         WinUaePathBox.Text = current.WinUaeExePath;
         KickstartPathBox.Text = current.KickstartRomPath;
@@ -44,6 +53,7 @@ public partial class SettingsWindow : Window
         target.Port1Device = (InputPort1)Port1Combo.SelectedIndex;
         target.Filter = (ScreenFilter)FilterCombo.SelectedIndex;
         target.MasterVolume = (int)VolumeSlider.Value;
+        target.NtscTiming = NtscCheck.IsChecked == true;
     }
 
     private void OnVolumeChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

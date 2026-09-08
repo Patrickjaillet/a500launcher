@@ -16,6 +16,8 @@ public sealed class AppSettings
 
     public int MasterVolume { get; set; } = 100;
 
+    public bool NtscTiming { get; set; }
+
     public string WinUaeExePath { get; set; } = string.Empty;
 
     public string KickstartRomPath { get; set; } = string.Empty;
