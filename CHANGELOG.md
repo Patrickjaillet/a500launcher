@@ -25,9 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Notes
 - Website Lighthouse on the live GitHub Pages site: 100 / 100 / 100 / 100.
 - End-to-end smoke test on the dev machine: build, silent install/uninstall,
-  launcher and config generation verified. WinUAE 6.0.3 crashes on config
-  autostart on this host (a WinUAE issue, not the launcher) and needs a re-test on
-  a clean Windows 11 machine before v1.0.0.
+  launcher and config generation verified. Every WinUAE version (5.0.0 to 6.0.3)
+  crashes on config autostart on this specific host — a WinUAE/host issue, not the
+  launcher, which generates a valid `.uae` and invokes `winuae64.exe -f` correctly.
+  The Workbench check will be done on a different Windows 11 machine before v1.0.0.
 
 ## [0.9.0]
 
