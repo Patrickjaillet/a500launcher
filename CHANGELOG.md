@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1]
+
+### Fixed
+- `tools/fetch-winuae.ps1` downloads and SHA-256-verifies `winuae/winuae64.exe`
+  before packaging, so the release installer builds in CI where `winuae/` is not
+  checked out (the `v1.0.0` release workflow failed at this step). Wired into
+  `build-release.ps1` and `release.yml`.
+
 ## [1.0.0]
 
 First public release. A500 Launcher covers the full launch flow: a Workbench-style
@@ -197,7 +205,8 @@ is locked (68000 / OCS / 512K chip + optional 512K trapdoor).
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.1...v1.0.0
 [0.9.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.8.4...v0.9.0

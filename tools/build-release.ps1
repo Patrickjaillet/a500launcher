@@ -32,8 +32,14 @@ try {
     & (Join-Path $PSScriptRoot "check-conventions.ps1")
     if ($LASTEXITCODE -ne 0) { throw "check-conventions failed." }
 
+    & (Join-Path $PSScriptRoot "check-history.ps1")
+    if ($LASTEXITCODE -ne 0) { throw "check-history failed." }
+
     & (Join-Path $PSScriptRoot "i18n-check.ps1")
     if ($LASTEXITCODE -ne 0) { throw "i18n-check failed." }
+
+    & (Join-Path $PSScriptRoot "fetch-winuae.ps1")
+    if ($LASTEXITCODE -ne 0) { throw "fetch-winuae failed." }
 
     dotnet publish $csproj -c $Configuration -r win-x64 --self-contained false `
         -p:PublishSingleFile=false -o $publishDir --nologo
