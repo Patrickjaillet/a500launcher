@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2]
+
+### Added
+- On first run the launcher disables the Windows Game Bar overlay (`AutoGameModeEnabled`,
+  `GameDVR_Enabled` and related keys under `HKCU`), which removes the
+  "ms-gamingoverlay" pop-up Windows shows when the emulator starts. A Settings
+  option turns it back on; the Help window and the site FAQ explain it.
+
 ## [1.0.1]
 
 ### Fixed
@@ -205,7 +213,8 @@ is locked (68000 / OCS / 512K chip + optional 512K trapdoor).
 - Settings written atomically (temp file + move).
 - All identifiers and code are English-only; no comments remain in source files.
 
-[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/patrickjaillet/a500launcher/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.1...v1.0.0
 [0.9.1]: https://github.com/patrickjaillet/a500launcher/compare/v0.9.0...v0.9.1

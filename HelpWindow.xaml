@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i18n="clr-namespace:A500Launcher.I18n"
-        Title="{i18n:Localize help.title}" Height="360" Width="480"
+        Title="{i18n:Localize help.title}" Height="420" Width="480"
         WindowStartupLocation="CenterOwner"
         Background="{StaticResource WbWindowGray}"
         FontFamily="{StaticResource WbFont}"
@@ -24,7 +24,8 @@
             <Run Text="{i18n:Localize help.reset}"/><LineBreak/><LineBreak/>
             <Run Text="{i18n:Localize help.launcher}" FontWeight="Bold"/><LineBreak/>
             <Run Text="{i18n:Localize help.launcher.esc}"/><LineBreak/>
-            <Run Text="{i18n:Localize help.launcher.drop}"/>
+            <Run Text="{i18n:Localize help.launcher.drop}"/><LineBreak/><LineBreak/>
+            <Run Text="{i18n:Localize help.gamebar}"/>
         </TextBlock>
     </DockPanel>
 </Window>

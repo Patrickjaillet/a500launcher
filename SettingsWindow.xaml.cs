@@ -5,11 +5,14 @@ using System.Windows.Input;
 using Microsoft.Win32;
 using A500Launcher.I18n;
 using A500Launcher.Models;
+using A500Launcher.Services;
 
 namespace A500Launcher;
 
 public partial class SettingsWindow : Window
 {
+    private readonly bool _initialSuppressGameBar;
+
     public SettingsWindow(AppSettings current)
     {
         InitializeComponent();
@@ -29,6 +32,8 @@ public partial class SettingsWindow : Window
         FullscreenCheck.IsChecked = current.Fullscreen;
         BootSplashCheck.IsChecked = current.ShowBootSplash;
         FloppySoundCheck.IsChecked = current.PlayFloppySound;
+        GameBarCheck.IsChecked = current.SuppressGameBar;
+        _initialSuppressGameBar = current.SuppressGameBar;
 
         LanguageCombo.ItemsSource = LanguageCatalog.Available();
         LanguageCombo.SelectedItem = LanguageCombo.Items
@@ -49,6 +54,13 @@ public partial class SettingsWindow : Window
         target.Fullscreen = FullscreenCheck.IsChecked == true;
         target.ShowBootSplash = BootSplashCheck.IsChecked == true;
         target.PlayFloppySound = FloppySoundCheck.IsChecked == true;
+        target.SuppressGameBar = GameBarCheck.IsChecked == true;
+        if (target.SuppressGameBar != _initialSuppressGameBar)
+        {
+            GameBarSuppressor.Apply(target.SuppressGameBar);
+            target.GameBarConfigured = true;
+        }
+
         target.LanguageCode = (LanguageCombo.SelectedItem as LanguageOption)?.Code;
         target.Port1Device = (InputPort1)Port1Combo.SelectedIndex;
         target.Filter = (ScreenFilter)FilterCombo.SelectedIndex;

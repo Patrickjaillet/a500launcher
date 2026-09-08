@@ -41,7 +41,16 @@ public partial class App : Application
             return;
         }
 
-        if (PortableLayout.ApplyDefaults(Settings))
+        var changed = PortableLayout.ApplyDefaults(Settings);
+
+        if (Settings.SuppressGameBar && !Settings.GameBarConfigured)
+        {
+            GameBarSuppressor.Apply(true);
+            Settings.GameBarConfigured = true;
+            changed = true;
+        }
+
+        if (changed)
         {
             SettingsService.Save(Settings);
         }

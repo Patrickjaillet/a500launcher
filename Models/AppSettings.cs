@@ -20,6 +20,10 @@ public sealed class AppSettings
 
     public bool NtscTiming { get; set; }
 
+    public bool SuppressGameBar { get; set; } = true;
+
+    public bool GameBarConfigured { get; set; }
+
     public string WinUaeExePath { get; set; } = string.Empty;
 
     public string KickstartRomPath { get; set; } = string.Empty;
