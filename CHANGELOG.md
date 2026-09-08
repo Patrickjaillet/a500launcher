@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   CHANGELOG notes), `pages.yml` (deploy `docs/` to GitHub Pages).
 - Issue templates for bug reports and translations.
 
+### Notes
+- Website Lighthouse (local static server): Performance 100, Accessibility 100,
+  SEO 100, Best practices 96.
+
 ## [0.9.0]
 
 ### Added
