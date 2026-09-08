@@ -1,0 +1,36 @@
+﻿# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Local build configuration (kept out of the public repository)
+*.props
+Directory.Build.props
+Directory.Build.targets
+
+# Local archives / artifacts
+*.zip
+dist/
+
+# Internal working documents (not published)
+ROADMAP.md
+CLAUDE.md
+COMPILATION.md
+GITHUB_DEPOT.md
+
+# Agent tooling (must never reach the public repository)
+.claude/
+
+# User-supplied emulation content (never versioned)
+bios/*
+roms/*
+!bios/README.txt
+!roms/README.txt
+
+# Embedded emulator (added at packaging time, not versioned)
+winuae/
+
+# Local screenshots / capture working files
+docs/scs/*.tmp.png

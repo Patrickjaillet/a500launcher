@@ -1,0 +1,5 @@
+floppy-insert.wav
+
+Original synthetic sound effect generated for A500 Launcher.
+Copyright (c) 2026 Patrick JAILLET. Distributed as part of the application
+under the A500 Launcher Freeware Licence (see the repository LICENSE file).

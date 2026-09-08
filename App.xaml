@@ -1,0 +1,64 @@
+﻿<Application x:Class="A500Launcher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="OnStartup">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <FontFamily x:Key="WbFont">pack://application:,,,/assets/fonts/Topaz_a500_v1.0.ttf#Topaz a500a1000a2000, Consolas</FontFamily>
+
+            <SolidColorBrush x:Key="WbBackground" Color="#9090C8"/>
+            <SolidColorBrush x:Key="WbWindowGray" Color="#AAAAAA"/>
+            <SolidColorBrush x:Key="WbWhite" Color="#FFFFFF"/>
+            <SolidColorBrush x:Key="WbBlack" Color="#000000"/>
+            <SolidColorBrush x:Key="WbOrange" Color="#FF8811"/>
+            <SolidColorBrush x:Key="WbTitleBarActive" Color="#000000"/>
+            <SolidColorBrush x:Key="WbTitleBarText" Color="#FFFFFF"/>
+
+            <Style x:Key="WbIconButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="{StaticResource WbWhite}"/>
+                <Setter Property="FontFamily" Value="{StaticResource WbFont}"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" Padding="4">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="WbButton" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource WbWindowGray}"/>
+                <Setter Property="Foreground" Value="{StaticResource WbBlack}"/>
+                <Setter Property="FontFamily" Value="{StaticResource WbFont}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Padding" Value="10,4"/>
+                <Setter Property="BorderBrush" Value="{StaticResource WbBlack}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource WbOrange}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

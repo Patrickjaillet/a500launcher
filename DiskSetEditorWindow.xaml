@@ -1,0 +1,54 @@
+<Window x:Class="A500Launcher.DiskSetEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i18n="clr-namespace:A500Launcher.I18n"
+        Title="{i18n:Localize editor.title}" Height="420" Width="520"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource WbWindowGray}"
+        FontFamily="{StaticResource WbFont}"
+        Icon="pack://application:,,,/assets/icons/app.ico"
+        ResizeMode="NoResize">
+    <StackPanel Margin="16">
+        <TextBlock Text="{i18n:Localize editor.titleField}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <TextBox x:Name="TitleBox" Background="White" Margin="0,0,0,10"/>
+
+        <Grid Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="{i18n:Localize editor.publisher}" FontWeight="Bold" Margin="0,0,0,4"/>
+                <TextBox x:Name="PublisherBox" Background="White"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="{i18n:Localize editor.year}" FontWeight="Bold" Margin="0,0,0,4"/>
+                <TextBox x:Name="YearBox" Background="White"/>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="{i18n:Localize editor.df0}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <DockPanel Margin="0,0,0,10">
+            <Button Content="{i18n:Localize settings.browse}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnBrowseDf0" Margin="6,0,0,0"/>
+            <TextBox x:Name="Df0Box" IsReadOnly="True" Background="White"/>
+        </DockPanel>
+
+        <TextBlock Text="{i18n:Localize editor.df1}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <DockPanel Margin="0,0,0,10">
+            <Button Content="{i18n:Localize settings.browse}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnBrowseDf1" Margin="6,0,0,0"/>
+            <TextBox x:Name="Df1Box" IsReadOnly="True" Background="White"/>
+        </DockPanel>
+
+        <TextBlock Text="{i18n:Localize editor.notes}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <TextBox x:Name="NotesBox" Background="White" Height="50" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,0,0,10"/>
+
+        <CheckBox x:Name="TrapdoorCheck" Content="{i18n:Localize settings.trapdoor.label}" Margin="0,0,0,6"/>
+        <CheckBox x:Name="FullscreenCheck" Content="{i18n:Localize settings.fullscreen.label}" Margin="0,0,0,16"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{i18n:Localize settings.cancel}" Style="{StaticResource WbButton}" Click="OnCancel" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize settings.save}" Style="{StaticResource WbButton}" Click="OnSave"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

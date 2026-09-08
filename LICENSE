@@ -1,0 +1,51 @@
+A500 Launcher — Freeware Licence
+Copyright (c) 2026 Patrick JAILLET. All rights reserved.
+
+Contact: sandefjord.development@proton.me
+Website: https://patrickjaillet.github.io/a500launcher
+
+1. Definitions
+   "Software" means the A500 Launcher application in executable form, together
+   with its bundled resources (localisation files, images, sounds, icons and
+   the accompanying documentation) as distributed by the copyright holder.
+
+2. Grant
+   You are granted a free, non-exclusive, non-transferable licence to install
+   and use the Software on any number of computers for personal or commercial
+   purposes, at no charge.
+
+3. Redistribution
+   You may redistribute the unmodified official installer or portable archive
+   of the Software provided that:
+     a) it is distributed free of charge;
+     b) this licence and all copyright notices are kept intact;
+     c) it is not represented as your own work.
+
+4. Restrictions
+   You may not:
+     a) modify, adapt, translate or create derivative works of the Software,
+        except for localisation files submitted to the copyright holder;
+     b) reverse engineer, decompile or disassemble the Software, except to the
+        extent expressly permitted by applicable law;
+     c) sell, rent, lease or sublicence the Software;
+     d) remove or alter any copyright, trademark or attribution notice.
+
+5. Source code
+   The source code of the Software is not distributed and is not part of this
+   licence.
+
+6. Third-party software
+   The Software launches WinUAE, an independent third-party emulator subject to
+   its own licence. Kickstart ROM images and Amiga disk images are the sole
+   responsibility of the user, who must hold the necessary rights to use them.
+
+7. No warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+   COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+8. Termination
+   This licence terminates automatically if you breach any of its terms. On
+   termination you must stop using the Software and destroy all copies.

@@ -1,0 +1,44 @@
+<Window x:Class="A500Launcher.LibraryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i18n="clr-namespace:A500Launcher.I18n"
+        Title="{i18n:Localize library.title}" Height="480" Width="620"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource WbWindowGray}"
+        FontFamily="{StaticResource WbFont}"
+        Icon="pack://application:,,,/assets/icons/app.ico">
+    <DockPanel Margin="12">
+        <Border DockPanel.Dock="Top" Background="{StaticResource WbBlack}" Padding="6,3" Margin="0,0,0,10">
+            <TextBlock Text="{i18n:Localize library.header}" Foreground="White" FontWeight="Bold"/>
+        </Border>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="{i18n:Localize library.import}" Style="{StaticResource WbButton}" Click="OnImport_Click" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize library.saveCurrent}" Style="{StaticResource WbButton}" Click="OnSaveCurrent_Click" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize library.close}" Style="{StaticResource WbButton}" Click="OnClose_Click"/>
+        </StackPanel>
+
+        <ListBox x:Name="SetList" Background="White" BorderBrush="{StaticResource WbBlack}" BorderThickness="2"
+                 MouseDoubleClick="OnList_DoubleClick" SelectionChanged="OnSelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="4">
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+                        <TextBlock FontSize="10" Foreground="#555555">
+                            <Run Text="{Binding Publisher, Mode=OneWay}"/>
+                            <Run Text=" "/>
+                            <Run Text="{Binding Year, Mode=OneWay}"/>
+                        </TextBlock>
+                        <TextBlock Text="{Binding Floppy0Path, Mode=OneWay}" FontSize="10" Foreground="#777777" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel DockPanel.Dock="Right" Width="150" Margin="10,0,0,0">
+            <Button x:Name="LaunchButton" Content="{i18n:Localize library.launch}" Style="{StaticResource WbButton}" Click="OnLaunch_Click" Margin="0,0,0,8" IsEnabled="False"/>
+            <Button x:Name="EditButton" Content="{i18n:Localize library.edit}" Style="{StaticResource WbButton}" Click="OnEdit_Click" Margin="0,0,0,8" IsEnabled="False"/>
+            <Button x:Name="DeleteButton" Content="{i18n:Localize library.delete}" Style="{StaticResource WbButton}" Click="OnDelete_Click" IsEnabled="False"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

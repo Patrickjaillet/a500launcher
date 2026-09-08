@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22000.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>A500Launcher</AssemblyName>
+    <RootNamespace>A500Launcher</RootNamespace>
+    <Platforms>AnyCPU;x64</Platforms>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>assets\icons\app.ico</ApplicationIcon>
+    <Company>Patrick JAILLET</Company>
+    <Product>A500 Launcher</Product>
+    <Copyright>Copyright © 2026 Patrick JAILLET</Copyright>
+    <Version>0.8.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="tests\**\*" />
+    <None Remove="tests\**\*" />
+    <Page Remove="tests\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="winuae\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="winuae" />
+    <None Include="bios\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="bios" />
+    <None Include="roms\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="roms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="assets\i18n\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="assets\i18n" />
+    <None Include="assets\sounds\**\*" CopyToOutputDirectory="PreserveNewest" LinkBase="assets\sounds" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\fonts\Topaz_a500_v1.0.ttf" />
+    <Resource Include="assets\icons\app.ico" />
+  </ItemGroup>
+
+</Project>

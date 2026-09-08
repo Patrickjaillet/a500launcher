@@ -1,0 +1,48 @@
+﻿<Window x:Class="A500Launcher.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i18n="clr-namespace:A500Launcher.I18n"
+        Title="{i18n:Localize dialog.about.title}" Height="320" Width="480"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource WbWindowGray}"
+        FontFamily="{StaticResource WbFont}"
+        Icon="pack://application:,,,/assets/icons/app.ico"
+        ResizeMode="NoResize">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource WbBlack}" Padding="6,3">
+            <TextBlock Text="{i18n:Localize dialog.about.product}" Foreground="White" FontWeight="Bold" FontSize="14"/>
+        </Border>
+
+        <TextBlock Grid.Row="1" x:Name="VersionText" Foreground="Black" Margin="0,10,0,0"/>
+
+        <TextBlock Grid.Row="2" Text="{i18n:Localize dialog.about.tagline}" Foreground="Black" TextWrapping="Wrap" Margin="0,10,0,0"/>
+
+        <StackPanel Grid.Row="3" Margin="0,14,0,0">
+            <TextBlock Text="{i18n:Localize dialog.about.copyright}" Foreground="Black"/>
+            <TextBlock Margin="0,4,0,0">
+                <Hyperlink x:Name="EmailLink" RequestNavigate="OnNavigate">
+                    <Run Text="{i18n:Localize dialog.about.email}"/>
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Margin="0,4,0,0">
+                <Hyperlink x:Name="WebsiteLink" RequestNavigate="OnNavigate">
+                    <Run Text="{i18n:Localize dialog.about.website}"/>
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Text="{i18n:Localize dialog.about.licence}" Foreground="Black" Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="{i18n:Localize dialog.about.licenceButton}" Style="{StaticResource WbButton}" Click="OnLicence_Click" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize dialog.about.ok}" Style="{StaticResource WbButton}" Click="OnOk_Click" MinWidth="80"/>
+        </StackPanel>
+    </Grid>
+</Window>

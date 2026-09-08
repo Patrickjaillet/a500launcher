@@ -1,0 +1,14 @@
+Topaz_a500_v1.0.ttf
+
+Source: https://github.com/rewtnull/amigafonts
+
+Licence: GPL with Font Exception (GPL-FE)
+  http://www.gnu.org/licenses/gpl-faq.html#FontException
+
+Copyright:
+  Topaz is (c) Amiga Inc.
+  ttf, fon, eot, raw & psf v1/v2 versions of Topaz are (c) dMG/t!s^dS!
+
+The GNU Font Exception permits embedding this font in a document or an
+application without the application itself falling under the GPL. This font
+file is redistributed unmodified together with this notice.

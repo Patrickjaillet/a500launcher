@@ -1,0 +1,23 @@
+<Window x:Class="A500Launcher.BootSplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen" Topmost="True"
+        Width="420" Height="260" Background="{StaticResource WbBlack}"
+        FontFamily="{StaticResource WbFont}">
+    <Grid>
+        <Border BorderBrush="{StaticResource WbWhite}" BorderThickness="3" Margin="14">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Width="120" Height="90" Background="{StaticResource WbWhite}" BorderBrush="{StaticResource WbWhite}" BorderThickness="0">
+                    <Grid>
+                        <Rectangle Fill="{StaticResource WbBlack}" Width="120" Height="90"/>
+                        <Rectangle Fill="{StaticResource WbWhite}" Width="74" Height="46" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                        <Rectangle Fill="{StaticResource WbWhite}" Width="30" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,24,0"/>
+                    </Grid>
+                </Border>
+                <TextBlock Text="Amiga 500" Foreground="{StaticResource WbWhite}" FontSize="20" HorizontalAlignment="Center" Margin="0,16,0,0"/>
+                <Rectangle x:Name="Led" Width="14" Height="14" Fill="{StaticResource WbOrange}" HorizontalAlignment="Center" Margin="0,14,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

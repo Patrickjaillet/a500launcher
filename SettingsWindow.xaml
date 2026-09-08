@@ -1,0 +1,75 @@
+<Window x:Class="A500Launcher.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i18n="clr-namespace:A500Launcher.I18n"
+        Title="{i18n:Localize settings.window.title}" Height="560" Width="540"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource WbWindowGray}"
+        FontFamily="{StaticResource WbFont}"
+        Icon="pack://application:,,,/assets/icons/app.ico"
+        ResizeMode="NoResize">
+    <StackPanel Margin="16">
+
+        <TextBlock Text="{i18n:Localize settings.winuae.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <DockPanel Margin="0,0,0,10">
+            <Button Content="{i18n:Localize settings.browse}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnBrowseWinUae_Click" Margin="6,0,0,0"/>
+            <TextBox x:Name="WinUaePathBox" IsReadOnly="True" Background="White"/>
+        </DockPanel>
+
+        <TextBlock Text="{i18n:Localize settings.kickstart.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <DockPanel Margin="0,0,0,10">
+            <Button Content="{i18n:Localize settings.browse}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnBrowseKickstart_Click" Margin="6,0,0,0"/>
+            <TextBox x:Name="KickstartPathBox" IsReadOnly="True" Background="White"/>
+        </DockPanel>
+
+        <TextBlock Text="{i18n:Localize settings.adfFolder.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <DockPanel Margin="0,0,0,12">
+            <Button Content="{i18n:Localize settings.browse}" DockPanel.Dock="Right" Style="{StaticResource WbButton}" Click="OnBrowseAdfFolder_Click" Margin="6,0,0,0"/>
+            <TextBox x:Name="AdfFolderBox" IsReadOnly="True" Background="White"/>
+        </DockPanel>
+
+        <Grid Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="{i18n:Localize settings.language.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+                <ComboBox x:Name="LanguageCombo" DisplayMemberPath="Name" Background="White"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="{i18n:Localize settings.port1.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+                <ComboBox x:Name="Port1Combo" Background="White">
+                    <ComboBoxItem Content="{i18n:Localize settings.port1.none}"/>
+                    <ComboBoxItem Content="{i18n:Localize settings.port1.mouse}"/>
+                    <ComboBoxItem Content="{i18n:Localize settings.port1.joystick}"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="{i18n:Localize settings.filter.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <ComboBox x:Name="FilterCombo" Background="White" Margin="0,0,0,12">
+            <ComboBoxItem Content="{i18n:Localize settings.filter.crisp}"/>
+            <ComboBoxItem Content="{i18n:Localize settings.filter.crtLight}"/>
+            <ComboBoxItem Content="{i18n:Localize settings.filter.crtHeavy}"/>
+        </ComboBox>
+
+        <TextBlock Text="{i18n:Localize settings.volume.label}" FontWeight="Bold" Margin="0,0,0,4"/>
+        <DockPanel Margin="0,0,0,12">
+            <TextBlock x:Name="VolumeValue" DockPanel.Dock="Right" Width="46" TextAlignment="Right"/>
+            <Slider x:Name="VolumeSlider" Minimum="0" Maximum="100" TickFrequency="10" IsSnapToTickEnabled="True"
+                    ValueChanged="OnVolumeChanged"/>
+        </DockPanel>
+
+        <CheckBox x:Name="TrapdoorRamCheck" Content="{i18n:Localize settings.trapdoor.label}" Margin="0,0,0,8"/>
+        <CheckBox x:Name="FullscreenCheck" Content="{i18n:Localize settings.fullscreen.label}" Margin="0,0,0,8"/>
+        <CheckBox x:Name="BootSplashCheck" Content="{i18n:Localize settings.bootSplash.label}" Margin="0,0,0,8"/>
+        <CheckBox x:Name="FloppySoundCheck" Content="{i18n:Localize settings.floppySound.label}" Margin="0,0,0,16"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{i18n:Localize settings.cancel}" Style="{StaticResource WbButton}" Click="OnCancel_Click" Margin="0,0,10,0"/>
+            <Button Content="{i18n:Localize settings.save}" Style="{StaticResource WbButton}" Click="OnSave_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
