@@ -18,6 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Notes
 - Website Lighthouse (local static server): Performance 100, Accessibility 100,
   SEO 100, Best practices 96.
+- Downloads are not yet code-signed; the README and website explain the
+  SmartScreen warning and point to `SHA256SUMS`.
+- End-to-end smoke test on the dev machine: build, silent install/uninstall,
+  launcher and config generation verified. WinUAE 6.0.3 crashes on config
+  autostart on this host (a WinUAE issue, not the launcher) and needs a re-test on
+  a clean Windows 11 machine before v1.0.0.
 
 ## [0.9.0]
 
