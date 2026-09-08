@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using A500Launcher.Models;
 using A500Launcher.Services;
@@ -5,8 +6,12 @@ using Xunit;
 
 namespace A500Launcher.Tests;
 
-public sealed class UaeConfigBuilderTests
+public sealed class UaeConfigBuilderTests : IDisposable
 {
+    public UaeConfigBuilderTests() => UaeConfigBuilder.GamepadConnected = () => false;
+
+    public void Dispose() => UaeConfigBuilder.GamepadConnected = GamepadDetector.IsGamepadConnected;
+
     private static string Build(AppSettings settings) => File.ReadAllText(UaeConfigBuilder.BuildAndSave(settings));
 
     [Fact]
@@ -68,6 +73,13 @@ public sealed class UaeConfigBuilderTests
         Assert.Contains("joyport1=none", Build(new AppSettings { Port1Device = InputPort1.None }));
         Assert.Contains("joyport1=mouse", Build(new AppSettings { Port1Device = InputPort1.Mouse }));
         Assert.Contains("joyport1=joy1", Build(new AppSettings { Port1Device = InputPort1.Joystick }));
+    }
+
+    [Fact]
+    public void JoystickUsesTheGamepadWhenOneIsConnected()
+    {
+        UaeConfigBuilder.GamepadConnected = () => true;
+        Assert.Contains("joyport1=joy0", Build(new AppSettings { Port1Device = InputPort1.Joystick }));
     }
 
     [Fact]

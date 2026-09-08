@@ -8,6 +8,8 @@ namespace A500Launcher.Services;
 
 public static class UaeConfigBuilder
 {
+    public static Func<bool> GamepadConnected { get; set; } = GamepadDetector.IsGamepadConnected;
+
     public static string BuildAndSave(AppSettings settings)
     {
         var builder = new StringBuilder();
@@ -83,6 +85,7 @@ public static class UaeConfigBuilder
 
         builder.AppendLine("joyport0=mouse");
         builder.AppendLine($"joyport1={Port1Value(settings.Port1Device)}");
+        builder.AppendLine("joyport1mode=djoy");
 
         AppendFilter(builder, settings.Filter);
 
@@ -121,7 +124,7 @@ public static class UaeConfigBuilder
     private static string Port1Value(InputPort1 device) => device switch
     {
         InputPort1.Mouse => "mouse",
-        InputPort1.Joystick => "joy1",
+        InputPort1.Joystick => GamepadConnected() ? "joy0" : "joy1",
         _ => "none",
     };
 

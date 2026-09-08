@@ -1,0 +1,30 @@
+<Window x:Class="A500Launcher.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i18n="clr-namespace:A500Launcher.I18n"
+        Title="{i18n:Localize help.title}" Height="360" Width="480"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource WbWindowGray}"
+        FontFamily="{StaticResource WbFont}"
+        Icon="pack://application:,,,/assets/icons/app.ico"
+        ResizeMode="NoResize">
+    <DockPanel Margin="16">
+        <Border DockPanel.Dock="Top" Background="{StaticResource WbBlack}" Padding="6,3" Margin="0,0,0,10">
+            <TextBlock Text="{i18n:Localize help.header}" Foreground="White" FontWeight="Bold"/>
+        </Border>
+
+        <Button DockPanel.Dock="Bottom" Content="{i18n:Localize dialog.about.ok}" Style="{StaticResource WbButton}"
+                HorizontalAlignment="Right" MinWidth="80" Margin="0,10,0,0" Click="OnOk_Click"/>
+
+        <TextBlock TextWrapping="Wrap" LineHeight="20">
+            <Run Text="{i18n:Localize help.emulator}" FontWeight="Bold"/><LineBreak/>
+            <Run Text="{i18n:Localize help.gui}"/><LineBreak/>
+            <Run Text="{i18n:Localize help.quit}"/><LineBreak/>
+            <Run Text="{i18n:Localize help.fullscreen}"/><LineBreak/>
+            <Run Text="{i18n:Localize help.reset}"/><LineBreak/><LineBreak/>
+            <Run Text="{i18n:Localize help.launcher}" FontWeight="Bold"/><LineBreak/>
+            <Run Text="{i18n:Localize help.launcher.esc}"/><LineBreak/>
+            <Run Text="{i18n:Localize help.launcher.drop}"/>
+        </TextBlock>
+    </DockPanel>
+</Window>

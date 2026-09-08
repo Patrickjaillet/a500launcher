@@ -293,6 +293,11 @@ public partial class MainWindow : Window
         new AboutWindow { Owner = this }.ShowDialog();
     }
 
+    private void OnMenuHelp_Click(object sender, RoutedEventArgs e)
+    {
+        new HelpWindow { Owner = this }.ShowDialog();
+    }
+
     private void OnDrawer_Click(object sender, MouseButtonEventArgs e) => OpenLibrary(e);
 
     private void OnMenuLibrary_Click(object sender, RoutedEventArgs e) => OpenLibrary(e);

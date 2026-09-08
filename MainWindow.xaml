@@ -24,6 +24,7 @@
                 <Button Content="{i18n:Localize menu.floppies}" Style="{StaticResource WbIconButton}" Foreground="Black" Click="OnMenuFloppies_Click"/>
                 <Button Content="{i18n:Localize menu.library}" Style="{StaticResource WbIconButton}" Foreground="Black" Click="OnMenuLibrary_Click" Margin="16,0,0,0"/>
                 <Button Content="{i18n:Localize menu.settings}" Style="{StaticResource WbIconButton}" Foreground="Black" Click="OnMenuSettings_Click" Margin="16,0,0,0"/>
+                <Button Content="{i18n:Localize menu.help}" Style="{StaticResource WbIconButton}" Foreground="Black" Click="OnMenuHelp_Click" Margin="16,0,0,0"/>
                 <Button Content="{i18n:Localize menu.about}" Style="{StaticResource WbIconButton}" Foreground="Black" Click="OnMenuAbout_Click" Margin="16,0,0,0"/>
             </StackPanel>
         </Border>
