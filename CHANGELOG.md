@@ -23,8 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   to `SHA256SUMS` for verification.
 
 ### Notes
-- Website Lighthouse (local static server): Performance 100, Accessibility 100,
-  SEO 100, Best practices 96.
+- Website Lighthouse on the live GitHub Pages site: Performance 99, Accessibility
+  100, SEO 100, Best practices 96 (the 4-point gap is the releases API returning
+  404 before the first release exists; the page now uses the list endpoint).
 - End-to-end smoke test on the dev machine: build, silent install/uninstall,
   launcher and config generation verified. WinUAE 6.0.3 crashes on config
   autostart on this host (a WinUAE issue, not the launcher) and needs a re-test on

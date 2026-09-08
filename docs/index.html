@@ -126,9 +126,10 @@
 </footer>
 
 <script>
-  fetch("https://api.github.com/repos/patrickjaillet/a500launcher/releases/latest")
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (rel) {
+  fetch("https://api.github.com/repos/patrickjaillet/a500launcher/releases?per_page=1")
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (list) {
+      var rel = Array.isArray(list) && list.length ? list[0] : null;
       if (!rel || !rel.assets) return;
       rel.assets.forEach(function (a) {
         if (/Setup.*\.exe$/i.test(a.name)) document.getElementById("dl-setup").href = a.browser_download_url;
