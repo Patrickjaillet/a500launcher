@@ -24,7 +24,7 @@ screen, and a themed installer bundling WinUAE 6.0.3. The Amiga 500 hardware pro
 is locked (68000 / OCS / 512K chip + optional 512K trapdoor).
 
 ### Notes
-- Downloads are not code-signed yet (v1.0.1); verify against `SHA256SUMS`.
+- Releases are not code-signed. Each one ships a `SHA256SUMS` file for verification.
 - The WinUAE-to-Workbench step could not be verified on the build machine, where
   every WinUAE version crashes on config autostart (a host issue, not the
   launcher). The generated `.uae` and the `winuae64.exe -f` invocation are correct.
@@ -41,8 +41,8 @@ is locked (68000 / OCS / 512K chip + optional 512K trapdoor).
 - `tools/check-history.ps1` scanning commit messages and co-author trailers.
 
 ### Changed
-- The README and website explain that downloads are not yet code-signed and point
-  to `SHA256SUMS` for verification.
+- The README, website and Legal page state that releases are not code-signed and
+  point to `SHA256SUMS` for verification.
 
 ### Notes
 - Website Lighthouse on the live GitHub Pages site: 100 / 100 / 100 / 100.

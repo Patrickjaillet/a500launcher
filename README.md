@@ -23,8 +23,8 @@ Run `A500Launcher-Setup-<version>.exe`, or unpack
 `A500Launcher-<version>-portable.zip` anywhere and run `A500Launcher.exe`.
 The installer keeps your settings, library, `bios` and `roms` folders on uninstall.
 
-The download is not yet code-signed, so Windows SmartScreen may warn on first run.
-Check the file against `SHA256SUMS` from the same release, then choose
+The download is not code-signed, so Windows SmartScreen may warn on first run.
+Verify the file against `SHA256SUMS` from the same release, then choose
 *More info → Run anyway*.
 
 ## Portable folders

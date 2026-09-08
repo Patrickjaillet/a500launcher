@@ -33,3 +33,9 @@ A500 Launcher collects no data and makes no network connection by default. It
 writes a locked Amiga 500 `.uae` file to `%TEMP%` and launches WinUAE with it.
 Logs are local only. Update checking, if enabled, makes an anonymous request to
 the GitHub releases API and sends nothing else.
+
+## Downloads
+
+Releases are not code-signed. Every release includes a `SHA256SUMS` file; verify
+your download against it before running. Only download from the GitHub releases
+page of this repository.
